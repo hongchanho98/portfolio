@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Document</title>
+
+    <style>
+      @font-face {
+        font-family: 'IBMPlexSansKR-SemiBold';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-SemiBold.woff')
+          format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+      body {
+        margin: 0;
+        background-color: #FFD8CC;
+        font-family: IBMPlexSansKR-SemiBold, sans-serif;
+        color: #444;
+        background: linear-gradient(#FEF7DC,#A19882);
+      }
+
+      #main {
+        width: 1200px;
+        margin: 0px auto 300px;
+        padding-top: 300px;
+        background-color: #FFEEDB;
+      }
+
+      #my_pic {
+        background-image: url(../html/images/man_01.png);
+        background-size: 220px;
+        background-color: rgb(255, 255, 255);
+        position: relative;
+        left: 80px;
+        top: 100px;
+        width: 220px;
+        height: 220px;
+        margin-left: 100px;
+        border: 1px solid black;
+        background-repeat: no-repeat;
+        border-radius: 20px;
+        display: inline-block;
+        z-index: 1;
+      }
+
+      section {
+        margin: 0 auto;
+        margin-bottom: 100px;
+        width: 1000px;
+        padding: 50px 50px 100px;
+        background-color: ivory;
+        border-radius: 30px;
+      }
+
+      .section_title {
+        font-size: 2.5em;
+        border-bottom: 10px dashed gray;
+        text-align: center;
+        padding-top: 50px;
+        margin-bottom: 100px;
+      }
+
+      #header_nav {
+        height: 70px;
+        background-color: rgb(112, 241, 241);
+        transition: transform .5s;
+        position: fixed;
+        width: 100%;
+        z-index: 2;
+      }
+
+      .info_title {
+        color: tomato;
+        display: block;
+        border-bottom: 2px dashed gray;
+        width: 300px;
+        margin-bottom: 10px;
+      }
+      .info_title + table td:first-child {
+        font-size: 1.1em;
+      }
+      .info_title + table td:last-child {
+        font-size: 1em;
+      }
+      #detail_education td:nth-child(1) {
+        font-size: 17px;
+      }
+      #detail_education td {
+        padding: 3px;
+      }
+
+      div#detail_education{
+        margin-top: -30px;
+      }
+
+      #detail_info,
+      #detail_certificate,
+      #detail_education {
+        float: left;
+        margin: 0px 70px;
+      }
+
+      .mini_icon > img {
+        width: 20px;
+      }
+
+      #about_me {
+        font-size: 1.7em;
+        text-align: center;
+      }
+      div[class*='skill_list'] {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        margin-bottom: 100px;
+      }
+
+      div[class*='skill_list'] > div {
+        background-color: white;
+        box-shadow: 1px 3px 5px gray;
+        margin: 20px;
+        display: flex;
+        float: left;
+        justify-content: center;
+        align-items: center;
+        overflow: hi;
+        border-radius: 30px;
+        padding: 9px;
+      }
+      div[class*='skill_list'] > div > img {
+        width: 140px;
+        /* background-color: yellowgreen; */
+      }
+
+      #navbar {
+        color: white;
+        font-size: 1.5em;
+        width: 1500px;
+        margin: 0 auto;
+      }
+      #navbar > a {
+        width: 170px;
+        height: 50px;
+        padding-top: 20px;
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        margin-left: -5px;
+      }
+
+      #navbar > a:not(#navbar > a:nth-child(1)):hover {
+        background-color: rgb(141, 243, 243);
+      }
+
+      #navbar > #logo {
+        margin-right: 600px;
+      }
+
+      #project_list {
+        background-color: rgba(100, 148, 237, 0.432);
+        padding-top: 30px;
+        padding-bottom: 30px;
+        border-radius: 20px;
+      }
+
+      .prj_box {
+        width: 90%;
+        height: 300px;
+        margin-left: 50px;
+        margin-top: 50px;
+        margin-bottom: 70px;
+        border-radius: 10px;
+        display: flex;
+      }
+
+      .prj_img {
+        width: 400px;
+        height: 300px;
+        background-size: 400px 300px;
+        background-repeat: no-repeat;
+        box-shadow: 0px 0px 10px black;
+        border-radius: 15px;
+        margin-right: 80px;
+        position: relative;;
+      }
+
+      .prj_java{
+        background-image: url(images/javaPrj1.png);
+
+      }
+
+      .prj_oracle {
+        background-image: url(images/oracle1.PNG);
+      }
+
+      .prj_none{
+        display: none;
+      }
+      
+      .prj_desc{
+        width: 400px;
+      }
+
+      .prj_img > img{
+
+        position: absolute;
+        width: 25px;
+        opacity: 0.2;
+
+      }
+
+      .previous_btn{
+        left: 0;
+        top: 130px;
+        margin-left: 10px;
+        
+      }
+      .next_btn{
+        right: 0;
+        top: 130px;
+        margin-right: 10px;
+      }
+
+      html { 
+         scroll-behavior: smooth; 
+      } 
+
+
+    </style>
+  </head>
+
+  <body>
+    <div id="header_nav">
+      <nav id="navbar">
+        <a href="test.html" id="logo">Chanho Hong</a>
+        <a id="link_home">HOME</a>
+        <!-- <a id="link_about" href="#my_pic">About</a> -->
+        <a id="link_about">About</a>
+        <a id="link_skill" href="#skill">Skill</a>
+        <a id="link_project" href="#project">Project</a>
+      </nav>
+    </div>
+    <div id="main">
+      <div id="my_pic"></div>
+      <div id="section_list">
+        <section id="about">
+          <div class="section_title">About</div>
+          <div id="detail_info">
+            <span class="info_title"
+              ><i class="mini_icon"><img src="images/loupe.png" /></i> 상세
+              정보</span
+            >
+            <table>
+              <tr>
+                <td>
+                  <i class="mini_icon"><img src="images/user-icon.png" /></i
+                  >.Name
+                </td>
+                <td>:&nbsp;&nbsp;홍찬호</td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="mini_icon"><img src="images/firecracker.png" /></i
+                  >.Birthday
+                </td>
+                <td>:&nbsp;&nbsp;1998.12.15</td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="mini_icon"><img src="images/phone-call.png" /></i
+                  >.TEL
+                </td>
+                <td>:&nbsp;&nbsp;010-4240-6240</td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="mini_icon"><img src="images/email.png" /></i>.Email
+                </td>
+                <td>:&nbsp;&nbsp;hongchanho98@gmail.com</td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="mini_icon"><img src="images/home.png" /></i>.Addr
+                </td>
+                <td>:&nbsp;&nbsp;경기도 성남시 중원구 도촌남로69</td>
+              </tr>
+            </table>
+          </div>
+
+          <div id="detail_certificate" style="margin-top: 150px">
+            <span class="info_title"
+              ><i class="mini_icon"><img src="images/medal.png" /></i> 자격
+              정보</span
+            >
+            <table>
+              <tr>
+                <td>2018. 11</td>
+                <td>:&nbsp;&nbsp;정보처리기능사</td>
+              </tr>
+              <tr>
+                <td>2017. 12</td>
+                <td>:&nbsp;&nbsp;리눅스마스터 2급</td>
+              </tr>
+              <tr>
+                <td>2016. 07</td>
+                <td>:&nbsp;&nbsp;통신선로기능사</td>
+              </tr>
+              <tr>
+                <td>2016. 07</td>
+                <td>:&nbsp;&nbsp;정보기기운용기능사</td>
+              </tr>
+              <tr>
+                <td>2015. 12</td>
+                <td>:&nbsp;&nbsp;네트워크관리사 2급</td>
+              </tr>
+              <tr>
+                <td>2015. 12</td>
+                <td>:&nbsp;&nbsp;컴퓨터활용능력 2급</td>
+              </tr>
+            </table>
+          </div>
+          <div id="detail_education">
+            <span class="info_title"
+              ><i class="mini_icon"><img src="images/mortarboard.png" /></i>
+              교육 정보</span
+            >
+            <table>
+              <tr>
+                <td>
+                  2021. 03<br />
+                  ~2021. 09
+                </td>
+                <td>:&nbsp;&nbsp;국비지원학원</td>
+              </tr>
+              <tr>
+                <td>
+                  2017. 03<br />
+                  ~2021. 02
+                </td>
+                <td>:&nbsp;&nbsp;신구대학교(전문학사)</td>
+              </tr>
+              <tr>
+                <td>
+                  2014. 03<br />
+                  ~2017. 02
+                </td>
+                <td>:&nbsp;&nbsp;양영디지털고등학교</td>
+              </tr>
+            </table>
+          </div>
+          <div style="clear: both; margin-bottom: 100px"></div>
+          <div id="about_me">
+            자신을 소개합니다
+            <br><br><br>
+            안녕하세요. 자바를 배우다 개발자의 꿈을 가지게 된 홍찬호입니다.
+            <br />
+            대학생 시절 자바 언어를 접하고 흥미를 느껴 백엔드 개발자의 꿈을
+            가지게 되었습니다.
+            <br />
+            <br />
+            2년제 대학을 졸업하고 백엔드 개발자가 되고싶었지만 배움에
+            부족함을느껴 국비지원학원을 다녔고, '멀티플랫폼 융합 SW개발자
+            양성'이라는 과정을 통해 꿈을 더 키우며, 더욱 큰 사회로 나아가
+            발전하는 개발자가 되고 싶습니다.
+          </div>
+        </section>
+
+        <section id="skill">
+          <div class="section_title">Skills</div>
+
+          <div class="skill_list1">
+            <div><img src="images/java.png" alt="Java" /></div>
+            <div><img src="images/oracle.png" alt="Oracle" /></div>
+            <div><img src="images/html.png" alt="HTML" /></div>
+            <div><img src="images/css.png" alt="CSS" /></div>
+            <div><img src="images/js.png" alt="JavaScript" /></div>
+          </div>
+          <div class="skill_list2">
+            <div><img src="images/JDBC.png" alt="JDBC" /></div>
+            <div><img src="images/serveltJSP.png" alt="JSP&Servelt" /></div>
+            <div><img src="images/Spring.png" alt="Spring" /></div>
+          </div>
+
+          <div style="clear: both; margin-bottom: 100px"></div>
+        </section>
+        <section id="project">
+          <div class="section_title">Project</div>
+
+          <div id="project_list">
+            <div class="prj_box">
+              <div class="prj_img prj_java">
+                <img src="images/left.svg" class="previous_btn">
+                <img src="images/right.svg" class="next_btn">
+              </div>
+              <div class="prj_desc">
+                <div class="prj_desc_title">자바프로젝트</div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia distinctio corrupti saepe earum a reiciendis quisquam totam sapiente, aliquam libero incidunt maiores fuga quidem laudantium inventore, non nulla illo officiis!
+                Nobis obcaecati quaerat corrupti, architecto vero mollitia, unde dolorem doloremque fugiat ullam, voluptatem animi cum laboriosam nostrum quod praesentium illum sint excepturi. A veritatis, nihil excepturi esse quisquam vel delectus.</p>
+              </div>
+            </div>
+            <div class="prj_box">
+              <div class="prj_img prj_oracle">
+                <img src="images/left.svg" class="previous_btn">
+                <img src="images/right.svg" class="next_btn">
+              </div>
+              <div class="prj_desc">
+                <div class="prj_desc_title">오라클프로젝트</div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia distinctio corrupti saepe earum a reiciendis quisquam totam sapiente, aliquam libero incidunt maiores fuga quidem laudantium inventore, non nulla illo officiis!
+                  Nobis obcaecati quaerat corrupti, architecto vero mollitia, unde dolorem doloremque fugiat ullam, voluptatem animi cum laboriosam nostrum quod praesentium illum sint excepturi. A veritatis, nihil excepturi esse quisquam vel delectus.</p>
+              </div>
+            </div>
+            <div class="prj_box prj_none">
+              <div class="prj_img prj____"></div>
+              <div class="prj_desc">
+                <div class="prj_desc_title"></div>
+                <p></p>
+              </div>
+            </div>
+            <div class="prj_box prj_none">
+              <div class="prj_img prj____"></div>
+              <div class="prj_desc">
+                <div class="prj_desc_title"></div>
+                <p></p>
+              </div>
+            </div>
+        </section>
+        <section>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      
+      var header_nav = document.getElementById('header_nav');
+      var previous_btn = document.getElementsByClassName('previous_btn');
+      var next_btn = document.getElementsByClassName('next_btn');
+      var link_home=document.getElementById('link_home');
+      var link_about=document.getElementById('link_about');
+      var link_skill=document.getElementById('link_skill');
+      var link_project=document.getElementById('link_project');
+
+      window.onscroll = function () {
+        if (window.scrollY > 1) {
+          header_nav.style.transform = 'translate(0px,0px)';
+        } else {
+          header_nav.style.transform = 'translate(0px,-70px)';
+        }
+      };
+
+
+      for(let i=0;i<previous_btn.length;i++){
+
+        previous_btn[i].onmouseover = function(){
+          previous_btn[i].style.opacity=0.7;
+          previous_btn[i].style.cursor="pointer";
+        };
+        next_btn[i].onmouseover = function(){
+          next_btn[i].style.opacity=0.7;
+          next_btn[i].style.cursor="pointer";
+        };
+        previous_btn[i].onmouseout = function(){
+          previous_btn[i].style.opacity=0.2;
+        };
+        next_btn[i].onmouseout = function(){
+          next_btn[i].style.opacity=0.2;
+        };
+      }
+
+
+      var java_count=1;
+      next_btn[0].onclick=function(){
+
+        java_count++;
+        if(java_count==13)
+          java_count=1;
+        next_btn[0].parentNode.style.backgroundImage='url(images/javaPrj'+java_count+'.png)';
+      };
+
+      previous_btn[0].onclick=function(){
+
+      java_count--;
+      if(java_count==0)
+        java_count=12;
+        previous_btn[0].parentNode.style.backgroundImage='url(images/javaPrj'+java_count+'.png)';
+      };
+
+
+      var oracle_count=1;
+      next_btn[1].onclick=function(){
+
+        oracle_count++;
+        if(oracle_count==4)
+          oracle_count=1;
+        next_btn[1].parentNode.style.backgroundImage='url(images/oracle'+oracle_count+'.png)';
+      };
+
+      previous_btn[1].onclick=function(){
+
+      oracle_count--;
+      if(oracle_count==0)
+        oracle_count=4;
+        previous_btn[1].parentNode.style.backgroundImage='url(images/oracle'+oracle_count+'.png)';
+      };
+
+      // window.onmousemove=function(){
+      //   console.log(window.scrollY);
+      // }
+
+
+
+      
+
+      // $("link_home, link_about").animate({ scrollTop: 300 }, 400);
+
+
+      
+    </script>
+  </body>
+</html>

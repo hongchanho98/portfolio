@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css"
+    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <style>
+      body {
+        margin: 0;
+        font-family: 'NanumSquare', sans-serif !important;
+        padding-bottom: 200px;
+        color: #222831;
+        background: linear-gradient(rgba(255,255,255, 0.8), rgba(255,255,255, 0.8)),
+          url(images/sky.jpg) no-repeat fixed;
+      }
+
+      #main {
+        margin: 0 auto;
+        margin-top: 100px;
+      }
+
+      section {
+        margin: 0 auto;
+        position: relative;
+        margin-bottom: 200px;
+        width: 1500px;
+      }
+
+
+      #title_img {
+        width: 90%;
+        height: 80vh;
+        /* background-image: url(images/idea-1296144_1920.jpg); */
+        background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+          url(images/idea-1296144_1920.jpg) no-repeat;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        position: relative;
+        margin: 0 auto;
+
+      }
+
+      #title_img > p {
+        color: white;
+        font-size: 3em;
+        font-weight: bold;
+        padding-left: 10%;
+        padding-top: 150px;
+        line-height: 70px;
+      }
+
+      .mini_icon > img {
+        width: 20px;
+      }
+
+      table {
+        /* border: 1px solid black; */
+        width: 350px;
+      }
+
+      #my_pic {
+        background-image: url(../javascript/images/rect_icon14.png);
+        width: 500px;
+        height: 500px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        /* border: 1px solid red; */
+        margin-right: 100px;
+        margin-left: 100px;
+        margin-bottom: 100px;
+        box-shadow: -30px 30px 10px gray;
+      }
+
+      #about_me {
+        display: flex;
+      }
+
+      #about_section {
+        background-color: #eee;
+        padding-top: 40px;
+        border-radius: 30px;
+        box-shadow: -20px 20px 15px gray;
+
+      }
+
+      #my_info {
+        font-size: 1.1em;
+        word-spacing: 7px;
+        margin-top: 10px;
+      }
+
+      #my_info > ul {
+        list-style: none;
+        padding: 0;
+        margin-left: -10px;
+        width: 80%;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 20px;
+      }
+
+      #my_info > ul > li {
+        padding-left: 10px;
+        margin: 10px;
+        padding: 0;
+      }
+
+      #skill_section {
+        padding-bottom: 0px;
+        background: linear-gradient(
+          90deg,
+          white 50%,
+          #ddd 50%
+        );
+        display: flex;
+        padding: 50px 0px;
+        border: 1px solid rgba(134, 79, 79, 0.24);
+        border-radius: 30px;
+        box-shadow: -20px 20px 15px gray;
+        padding-bottom: 120px;
+      }
+
+      #skill_section img {
+        width: 150px;
+        border-radius: 15px;
+      }
+
+
+        
+
+      #skill_section > div>div>div {
+        width: 170px;
+        height: 170px;
+        box-shadow: 1px 1px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 30px;
+        background-color: white;
+        margin: 0px 50px;
+      }
+
+      #skill_section > div>div>div:hover {
+        transform: scale(1.1,1.1);
+        /* transition: all .5s; */
+      }
+
+      
+
+      #skill_Front_end {
+        width: 50%;
+        margin: 0 auto;
+        /* display: flex;
+        justify-content: space-evenly;
+        align-items: center; */
+      }
+
+      #skill_Front_end h2,#skill_Back_end h2{
+        text-align: center;
+        font-size: 40px;
+      }
+
+      #skill_Front_end h2{
+        color: black;
+      }
+
+      #skill_Back_end h2{
+        color: white;
+
+      }
+
+      .skill_line{
+        width: 300px;
+        height: 5px;
+        margin: 0 auto;
+      }
+      
+      #skill_Front_end .skill_line{
+        
+        border-top: 5px solid black; 
+      }
+
+      #skill_Back_end .skill_line{
+        
+        border-top: 5px solid white; 
+      }
+
+      .Front_img,.Back_img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+      }
+
+      .Front_img > div{
+        background-color: rgba(134, 79, 79, 0.24) !important; 
+      }
+
+      #skill_Back_end {
+        /* display: flex;
+        justify-content: space-evenly;
+        align-items: center; */
+        width: 50%;
+      }
+      
+
+      #title_button {
+        width: 200px;
+        height: 45px;
+        background-color: white;
+        border: 0;
+        position: absolute;
+        left: 10%;
+        bottom: 20%;
+        font-size: 1em;
+        font-weight: bold;
+      }
+
+      #title_button:hover,
+      #info_button:hover {
+        background-color: #f8f400;
+      }
+
+      #info_button {
+        width: 80px;
+        border-radius: 10px;
+        background-color: white;
+        border: 1px solid #ccc;
+      }
+
+      .section_title {
+        text-align: center;
+        font-size: 3em;
+        margin-bottom: 80px;
+      }
+
+      .info_detail {
+        font-weight: 900;
+      }
+
+      #ques_section > div{
+        display: flex;
+         justify-content: space-evenly;
+          align-items: center;
+           font-size: 1.2em;
+            line-height: 30px;
+      }
+
+      #ques_section > div > div{
+        width:400px; height:400px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-align: center;
+        flex-direction: column;
+        font-weight: bold;
+        font-size: 1.3em;
+      }
+
+      #project_section{
+        background-color: #eee;
+        padding: 100px 0px;
+        border-radius: 20px 20px 0px 0px;
+
+      }
+
+      #project_box{
+        width: 1400px;
+        margin: 0 auto;
+      }
+
+      .project_desc{
+        width: 600px;
+        padding: 0px 40px;
+        position: relative;
+      }
+
+      .project_desc:nth-child(2n+1){
+        text-align: right;
+      }
+
+      #project_box>div{
+        display: flex;
+        margin-bottom: 130px;
+        justify-content: center;
+      }
+
+      #project_section img{
+        width: 600px;
+        height: 400px;
+      }
+
+      .glyphicon{
+        font-size: 4em;
+      }
+
+      .project_desc:nth-child(2n) .glyphicon-circle-arrow-right{
+        position: absolute;
+        left: 140px;
+        top: 300px;
+      }
+      
+      .project_desc:nth-child(2n) .glyphicon-circle-arrow-left{
+        position: absolute;
+        left: 50px;
+        top: 300px;
+
+      }
+
+      .project_desc:nth-child(2n+1) .glyphicon-circle-arrow-right{
+        position: absolute;
+        right: 50px;
+        top: 300px;
+
+      }
+      
+      .project_desc:nth-child(2n+1) .glyphicon-circle-arrow-left{
+        position: absolute;
+        right: 140px;
+        top: 300px;
+      }
+
+      .project_desc h1{
+        font-size: 3em;
+        font-weight: bold;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <section id="title_section">
+        <div id="title_img">
+          <p>
+            <span
+              style="
+                font-size: 1.2em;
+                background-color: white;
+                color: cornflowerblue;
+              "
+              >&nbsp;웹 개발자를 꿈꾸는&nbsp;</span
+            ><br />
+            신입 개발자 홍찬호 입니다.<br />
+          </p>
+          <button id="title_button">더 알아보기</button>
+        </div>
+      </section>
+      <section id="about_section">
+        <h1 class="section_title"">저 자신을 소개합니다!</h1>
+        <div id="about_me">
+          <div>
+            <div id="my_pic"></div>
+          </div>
+          <div>
+            <div id="my_info">
+              <ul>
+                <li><span class="info_detail">이름</span>&nbsp;홍찬호</li>
+                <li>
+                  <span class="info_detail">생년월일</span>&nbsp;1998.12.15
+                  (24세)
+                </li>
+                <li>
+                  <span class="info_detail">연락처</span>&nbsp;010-4240-6240
+                </li>
+                <li>
+                  <span class="info_detail">학력</span>&nbsp;신구대학교
+                  정보통신보안학과 졸업
+                </li>
+                <li>
+                  <span class="info_detail">사는곳</span>&nbsp;경기도 성남시
+                  중원구
+                </li>
+                <li><span class="info_detail">경력</span>&nbsp;신입</li>
+                <li>
+                  <span class="info_detail">그 외</span>&nbsp;Java기반 멀티
+                  플랫폼 융합 SW개발자 양성과정(국비학원)
+                </li>
+                <li><button id="info_button">자격증(Click!)</button></li>
+              </ul>
+              <br />
+              <h2 style="margin-top: -5px; color: black">소개</h2>
+              <p style="line-height: 30px;">
+                안녕하세요. 자바를 배우다 개발자의 꿈을 가지게 된 홍찬호입니다.
+                <br />
+                대학생 시절 자바 언어를 접하고 흥미를 느껴 백엔드 개발자의 꿈을
+                가지게 되었습니다.
+                <br />
+                <br />
+                2년제 대학을 졸업하고 백엔드 개발자가 되고싶었지만 배움에
+                부족함을느껴 국비지원학원을 다녔고,<br />
+                '멀티플랫폼 융합 SW개발자 양성 과정'을 통해 꿈을 더 키워
+                나아갔습니다.<br>
+                 더욱 큰 사회로 나아가 발전하는 개발자가 되고 싶습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="ques_section">
+        <div>
+          <div style="background-color: #00EAD3; color: white;">
+            <h2>PRO</h1>
+            <p>자신이 맡은 역할에<br>열정을 가지며 전문적으로!</p>
+          </div>
+
+          <div style="background-color: #FFF5B7; color: black;">
+            <h2>PRIDE</h1>
+            <p>자신이 하는일에 항상<br>
+            자부심을 가지고 열심히!</p>
+          </div>
+
+
+          <div style="background-color: #FF449F; color:white;">
+            <h2>POWER</h1>
+            <p>쉽게 포기하지 않고<br>힘차게 나아가자!</p>
+          </div>
+        </div>
+      </section>
+      
+      <h1 class="section_title"  style="text-shadow: 2px 2px 2px #444;">제가 사용할 수 있는 스킬 입니다.!
+      </h1>
+      <section id="skill_section"">
+        
+        <div id="skill_Front_end">
+          <h2>Front-end</h2>
+          <div class="skill_line" style="width: 300px; height: 5px; border-top: 5px solid black; margin: 0 auto;"></div>
+          <div class="Front_img" style="width: 100%;">
+            <div><img src="images/html.png" alt="HTML" /></div>
+          </div>
+          <div class="Front_img">
+            <div><img src="images/css.png" alt="CSS" /></div>
+            <div><img src="images/javascript.png" alt="JavaScript" style="transform: scale(0.7,0.7);" /></div>
+          </div>
+        </div>
+        <div id="skill_Back_end">
+          <h2>Back-end</h2>
+          <div class="skill_line" ></div>
+          <div class="Back_img">
+            <div><img src="images/java.png" alt="Java" /></div>
+            <div><img src="images/oracle.png" alt="Oracle" /></div>
+          </div>
+          <div class="Back_img"  style="width: 100%";>
+            <div><img src="images/JDBC.png" alt="JDBC" /></div>
+            <div><img src="images/serveltJSP.png" alt="JSP&Servelt" /></div>
+            <div><img src="images/Spring.png" alt="Spring" /></div>
+          </div>
+        </div>
+      </section>
+
+      <h1 class="section_title"  style="text-shadow: 2px 2px 2px #444;">프로젝트
+      </h1>
+      <section id="project_section">
+        <div id="project_box">
+          <div>
+            <div>
+              <img src="images/javaPrj1.png">
+            </div>
+            <div class="project_desc">
+              <h1>자바 프로젝트</h1>
+              <div class="project_tool">사용 툴: eclipse</div>
+              <div class="project_preiod">프로젝트 기간: 2주일</div>
+              <p class="project_text">첫 프로젝트 작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다</p>
+              <div class="glyphicon glyphicon-circle-arrow-left"></div>
+              <div class="glyphicon glyphicon-circle-arrow-right"></div>
+            </div>
+          </div>
+          <div>
+            <div class="project_desc">
+              <h1>오라클 프로젝트</h1>
+              <div class="project_tool">사용 툴: sqldeveloper, eclipse</div>
+              <div class="project_preiod">프로젝트 기간: 2주일</div>
+              <p class="project_text">첫 프로젝트 작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다</p>
+              <div class="glyphicon glyphicon-circle-arrow-left"></div>
+              <div class="glyphicon glyphicon-circle-arrow-right"></div>
+            </div>
+            <div>
+              <img src="images/oracle1.PNG">
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
