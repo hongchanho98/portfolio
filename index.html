@@ -59,6 +59,7 @@
         left: 0px;
         top: -5px;
         z-index: 1;
+        overflow: hidden;
       }
 
       #overlay > h1 {
@@ -70,6 +71,50 @@
         margin: 0;
       }
 
+      #overlay > h1:nth-child(4) {
+        transform: translate(2000px,0px);
+        opacity: 0;
+        animation-name: effect5;
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+        animation-delay: 1.5s;
+      }
+
+      @keyframes effect5 {
+
+        0%{
+          transform: translate(2000px,0px);
+        }
+        100%{
+          transform: translate(0px,0px);
+          opacity: 1;
+        }
+        
+      }
+
+      #overlay > h1:nth-child(5) {
+        transform: translate(200px,0px);
+        opacity: 0;
+        animation-name: effect6;
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+        animation-delay: 1.7s;
+      }
+
+      @keyframes effect6 {
+
+        0%{
+          transform: translate(-2000px,0px);
+        }
+        100%{
+          transform: translate(0px,0px);
+          opacity: 1;
+        }
+        
+      }
+
+
+
       .title_write {
         font-size: 4em;
         display: block;
@@ -80,15 +125,105 @@
         margin-top: 100px;
         padding-left: 100px;
         color: red;
+        transform: translate(-300px,0px);
+        animation-name: effect1;
+        animation-duration: .5s;
+        animation-fill-mode: forwards;
       }
+
+      @keyframes effect1{
+        0%{
+          transform: translate(-300px,0px);
+        }
+
+        20%{
+          transform: translate(0px,0px);
+        }
+
+        40%{transform: translate(-100px,0px);}
+
+        60%{
+          transform: translate(0px,0px);
+        }
+        80%{
+          transform: translate(-50px,0px);
+        }
+
+        100%{
+          transform: translate(0px,0px);
+        }
+
+      }
+
       .title_write:nth-child(2) {
         padding-left: 200px;
         color: yellow;
+        transform: translate(-400px,0px);
+        animation-name: effect2;
+        animation-duration: .5s;
+        animation-fill-mode: forwards;
+        animation-delay: 0.5s;
       }
+
+      @keyframes effect2{
+        0%{
+          transform: translate(-400px,0px);
+        }
+
+        20%{
+          transform: translate(0px,0px);
+        }
+
+        40%{transform: translate(-100px,0px);}
+
+        60%{
+          transform: translate(0px,0px);
+        }
+        80%{
+          transform: translate(-50px,0px);
+        }
+
+        100%{
+          transform: translate(0px,0px);
+        }
+
+      }
+
+
+
       .title_write:nth-child(3) {
         margin-left: 300px;
         color: blue;
         margin-bottom: 60px;
+        transform: translate(-500px,0px);
+        animation-name: effect3;
+        animation-duration: .5s;
+        animation-fill-mode: forwards;
+        animation-delay: 1s;
+      }
+
+      @keyframes effect3{
+        0%{
+          transform: translate(-500px,0px);
+        }
+
+        20%{
+          transform: translate(0px,0px);
+        }
+
+        40%{transform: translate(-100px,0px);}
+
+        60%{
+          transform: translate(0px,0px);
+        }
+        80%{
+          transform: translate(-50px,0px);
+        }
+
+        100%{
+          transform: translate(0px,0px);
+        }
+
       }
 
       .mini_icon > img {
@@ -292,6 +427,7 @@
         flex-direction: column;
         font-weight: bold;
         font-size: 1.3em;
+        position: relative;
       }
 
       #ques_section h2 {
@@ -306,10 +442,8 @@
         width: 100%;
       }
 
-      
-
       .project_desc {
-        width: 600px;
+        width: 800px;
         padding: 0px 40px;
         position: relative;
       }
@@ -330,7 +464,7 @@
         overflow: hidden;
       }
 
-      .project_img_box > img{
+      .project_img_box > img {
         cursor: pointer;
       }
 
@@ -425,11 +559,14 @@
       .project_period {
         font-weight: bold;
         font-size: 1.1em;
+        margin-bottom: 15px;
       }
 
       .project_text {
         line-height: 25px;
-        font-size: 15px;
+        font-size: 17px;
+        text-align: justify;
+        font-weight: 500;
       }
 
       /* The Modal (background) */
@@ -450,8 +587,101 @@
         float: right;
         margin-right: 10px;
         cursor: pointer;
-        font-size: 2em;
+        font-size: 4em;
       }
+
+      #modal_img {
+        width: 1400px;
+        height: 800px;
+        background-image: url(images/javaPrj1.png);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+      }
+
+      #project_modal {
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 0.4);
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #project_box > div:nth-child(odd) {
+        
+        background: linear-gradient(135deg ,rgb(199, 237, 252),white);
+      }
+
+
+      #project_box > div:nth-child(even) {
+        background: linear-gradient(-135deg ,rgb(233, 222, 252),white);
+      }
+
+      .glyphicon-chevron-left {
+        position: absolute;
+        top: 0;
+      }
+
+      .glyphicon-chevron-right {
+        position: absolute;
+
+        right: 0;
+        top: 0;
+      }
+
+      .glyphicon-chevron-left,.glyphicon-chevron-right{
+        cursor: pointer;
+      }
+
+      #loader_first{
+        border: 5px solid rgba(99, 243,229, 0.2);
+        border-top-color: rgb(156, 252, 242);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border-radius: 50%;
+        animation: spin_left 10s linear infinite;
+
+      }
+
+      #loader_second{
+        border: 5px solid rgba(255, 255, 97, 0.2);
+        border-left-color: rgb(226, 255, 62);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border-radius: 50%;
+        animation: spin_right 10s linear infinite;
+
+      }
+
+      #loader_third{
+        border: 5px solid rgba(250, 183, 215,0.2);
+        border-bottom-color: rgb(253, 211, 227);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border-radius: 50%;
+        animation: spin_left 10s linear infinite;
+
+      }
+
+      
+
+      @keyframes spin_left {
+        to { transform: rotate(360deg); }
+      }
+      @keyframes spin_right {
+        to { transform: rotate(-360deg); }
+      }
+
+
     </style>
   </head>
   <body>
@@ -554,6 +784,7 @@
           <div style="background-color: #00ead3; color: white">
             <h2>PRO</h2>
             <p>자신이 맡은 역할에<br />열정을 가지며 전문적으로!</p>
+            <div id="loader_first"></div>
           </div>
 
           <div style="background-color: #fff5b7; color: black">
@@ -562,10 +793,12 @@
               자신이 하는일에 항상<br />
               자부심을 가지고 열심히!
             </p>
+            <div id="loader_second"></div>
           </div>
           <div style="background-color: #ff449f; color: white">
             <h2>POWER</h2>
             <p>쉽게 포기하지 않고<br />밝은 모습으로 힘차게!</p>
+            <div id="loader_third"></div>
           </div>
         </div>
       </section>
@@ -617,33 +850,15 @@
         프로젝트
       </h1>
 
-      <div
-        id="project_modal"
-        style="
-          width: 100vw;
-          height: 100vh;
-          background-color: black;
-          z-index: 10;
-          background-color: rgba(0, 0, 0, 0.4);
-          position: fixed;
-          left: 0;
-          bottom: 0;
-          display: none;
-          justify-content: center;
-          align-items: center;
-        "
-      >
-        <h1
-          style="
-            width: 1400px;
-            height: 800px;
-            background-image: url(images/javaPrj1.png);
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-          "
-        >
+      <div id="project_modal">
+        <div id="modal_img">
           <span id="modal_close">&times;</span>
-        </h1>
+          <!-- <span
+            id="modal_right"
+            class="glyphicon glyphicon-chevron-right"
+          ></span>
+          <span id="modal_left" class="glyphicon glyphicon-chevron-left"></span> -->
+        </div>
       </div>
       <section id="project_section">
         <div id="project_box">
@@ -653,22 +868,20 @@
             </div>
             <div class="project_desc">
               <h1>자바 프로젝트</h1>
-              <div class="project_tool">사용 툴: eclipse</div>
+              <div class="project_tool">사용 툴: eclipse, 메모장</div>
               <div class="project_period">프로젝트 기간: 2주일</div>
               <p class="project_text">
-                느낀점: 저의 첫 프로젝트 작품입니다. 자바를 사용하여 만든 콘솔
-                프로그램입니다. 주제는 중고거래 게시판입니다. 프로그램
+                저의 첫 프로젝트 작품입니다. 자바를 사용하여 만든 콘솔
+                프로그램입니다. 주제는 중고거래 프로그램 입니다. 프로그램
                 기능으로는 회원가입, 로그인, 게시글(작성, 검색, 수정, 삭제),
                 구매, 마이페이지(충전, 출금, 장바구니, 회원 탈퇴) 등등 거래를 할
-                수 있는 기능들을 구현했습니다. 각종 데이터 관리는 시작 시
-                메모장에 있는 데이터들을 컬렉션을 사용하여 클래스끼리 데이터
-                전달을 하고 종료 시에 다시 메모장으로 데이터를 저장하는 방식으로
+                수 있는 기능들을 구현했습니다. 메모장을 통해 데이터들을 입출력
                 하였습니다. 저의 첫 프로젝트였기에 처음에는 프로젝트를 하면서
                 팀원들과의 소통, 역할 분담 등 각종 고민이 있었습니다. 하지만
                 계속 프로젝트를 해결해 나가면서 고민이 사라지고 각자의 역할에
-                임하면서 프로젝트를 만들었습니다. 또한 자바의 파일 입출력부분에
-                실력이 아쉬웠었지만, 천천히 코드를 정리하면서 공부도 많이
-                되었습니다.
+                임하면서 프로젝트를 만들었습니다. 또한 프로젝트를 시작하기 전
+                자바의 파일 입출력에 대한 공부가 모자란 상태였지만, 천천히
+                코드를 정리고 프로젝트를 하면서 공부도 많이 되었습니다.
               </p>
               <div class="glyphicon glyphicon-circle-arrow-left"></div>
               <div class="glyphicon glyphicon-circle-arrow-right"></div>
@@ -680,8 +893,15 @@
               <div class="project_tool">사용 툴: sqldeveloper, eclipse</div>
               <div class="project_period">프로젝트 기간: 2주일</div>
               <p class="project_text">
-                첫 프로젝트
-                작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다작품입니다
+                오라클 프로젝트의 주제는 제가 다녔던 교육센터의 운영 프로그램
+                입니다. ANSI-SQL과 PL/SQL을 사용했으며, 프로젝트를 시작했을 때
+                PL/SQL에 대한 이해도가 부족한 상태였으나 팀원들과의 소통을 통해
+                해결해 나갔습니다. 그리고 그 외 뷰,인덱스, 트리거에 대한 공부가
+                많이 되었습니다. 해당 프로젝트를 통해 많이 헷갈렸던 PL/SQL을
+                공부할 수 있었던 프로젝트 였습니다. 이번에도 같은 팀원과
+                프로젝트를 진행했지만 처음했던 자바 프로젝트의 경험을 살려
+                자바프로젝트에서는 부족했던 소통을 통해 서로의 부족한점을
+                채워나가며 진행했고 그렇게 프로젝트를 완료할 수 있었습니다.
               </p>
               <div class="glyphicon glyphicon-circle-arrow-left"></div>
               <div class="glyphicon glyphicon-circle-arrow-right"></div>
@@ -799,26 +1019,50 @@
       );
 
       $('#project_box img').click(function () {
+        $('#project_modal').css({ display: 'flex' });
+        $('#project_modal > h1').css(
+          'background-image',
+          'url(' + $(this).attr('src') + ')'
+        );
+        $('body').css('overflow', 'hidden');
 
-          $('#project_modal').css({display: 'flex'});
-          $('#project_modal > h1').css('background-image','url('+$(this).attr('src')+')');
-          $('body').css('overflow','hidden');
-
+        // $('.glyphicon-chevron-left, .glyphicon-chevron-right').css(
+        //   'top',
+        //   $('.glyphicon-chevron-left, .glyphicon-chevron-right')
+        //     .parent()
+        //     .height() /
+        //     2 +
+        //     'px'
+        // );
       });
 
-      $('#modal_close,#project_modal').click(function(){
-            $('#project_modal').css({display:'none'});
-            $('body').css('overflow','auto');
-
+      $('#modal_close,#project_modal').click(function () {
+        $('#project_modal').css({ display: 'none' });
+        $('body').css('overflow', 'auto');
       });
 
-      $('#project_modal>h1').click(function(){
-            
-            event.stopPropagation();
+      $('#project_modal>div').click(function () {
+        event.stopPropagation();
       });
+
+      // $('.glyphicon-chevron-left, .glyphicon-chevron-right').mouseover(
+      //   function () {
+      //     $(this).css('opacity', '0.7');
+      //   }
+      // );
+
+      // $('.glyphicon-chevron-left, .glyphicon-chevron-right').mouseout(
+      //   function () {
+      //     $(this).css('opacity', '0.2');
+      //   }
+      // );
+
+      //   $('.glyphicon-chevron-left,.glyphicon-chevron-right').click(function(){
+      //   });
+
       
-
-
+      
+      
     </script>
   </body>
 </html>
